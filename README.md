@@ -1,4 +1,4 @@
-# Google Football Research (PyTorch)
+# Google Football Research
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)   
 This is the pytorch example of the google football research, more contents will be updated soon!
 ## Requirements
@@ -10,6 +10,7 @@ This is the pytorch example of the google football research, more contents will 
 - [ ] add more tasks and examples - full game is in plan.
 - [ ] remove openai-baseline's functions.
 - [ ] add more algorithms: **IMPALA** and **Ape-X DQN**.
+- [ ] add multi-agent reinforcement learning algorithms (**MARL**)
 
 ## Installation
 Please install the `gfootball` according to the instructions [here](https://github.com/google-research/football).
