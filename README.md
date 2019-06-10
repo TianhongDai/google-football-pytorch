@@ -26,7 +26,7 @@ pip install tensorflow
 ``` bash 
 git clone https://github.com/google-research/football.git
 cd football
-pip3 install .[tf_cpu] --process-dependency-links (we don't need GPU for tensorflow)
+pip install .[tf_cpu] --process-dependency-links (we don't need GPU for tensorflow)
 ```
 ## How to use the code
 Train the simple example - **academy_empty_goal_close**
