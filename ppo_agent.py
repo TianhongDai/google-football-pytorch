@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from torch import optim
-from utils import select_actions, evaluate_actions
+from utils import select_actions, evaluate_actions, config_logger
 from datetime import datetime
 import os
 import copy
@@ -26,11 +26,16 @@ class ppo_agent:
         self.model_path = os.path.join(self.args.save_dir, self.args.env_name)
         if not os.path.exists(self.model_path):
             os.mkdir(self.model_path)
+        # logger folder
+        if not os.path.exists(self.args.log_dir):
+            os.mkdir(self.args.log_dir)
+        self.log_path = self.args.log_dir + self.env_name + '.log'
         # get the observation
         self.batch_ob_shape = (self.args.num_workers * self.args.nsteps, ) + self.envs.observation_space.shape
         self.obs = np.zeros((self.args.num_workers, ) + self.envs.observation_space.shape, dtype=self.envs.observation_space.dtype.name)
         self.obs[:] = self.envs.reset()
         self.dones = [False for _ in range(self.args.num_workers)]
+        self.logger = config_logger(self.log_path)
 
     # start to train the network...
     def learn(self):
@@ -109,7 +114,7 @@ class ppo_agent:
             pl, vl, ent = self._update_network(mb_obs, mb_actions, mb_returns, mb_advs)
             # display the training information
             if update % self.args.display_interval == 0:
-                print('[{}] Update: {} / {}, Frames: {}, Rewards: {:.3f}, Min: {:.3f}, Max: {:.3f}, PL: {:.3f},'\
+                self.logger.info('[{}] Update: {} / {}, Frames: {}, Rewards: {:.3f}, Min: {:.3f}, Max: {:.3f}, PL: {:.3f},'\
                     'VL: {:.3f}, Ent: {:.3f}'.format(datetime.now(), update, num_updates, (update + 1)*self.args.nsteps*self.args.num_workers, \
                     final_rewards.mean().item(), final_rewards.min().item(), final_rewards.max().item(), pl, vl, ent))
                 # save the model

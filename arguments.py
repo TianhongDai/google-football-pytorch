@@ -21,6 +21,7 @@ def get_args():
     parse.add_argument('--lr-decay', action='store_true', help='if using the learning rate decay during decay')
     parse.add_argument('--max-grad-norm', type=float, default=0.5, help='grad norm')
     parse.add_argument('--display-interval', type=int, default=10, help='the interval that display log information')
+    parse.add_argument('--log-dir', type=str, default='logs/')
 
     args = parse.parse_args()
 
