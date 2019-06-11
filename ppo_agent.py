@@ -29,7 +29,7 @@ class ppo_agent:
         # logger folder
         if not os.path.exists(self.args.log_dir):
             os.mkdir(self.args.log_dir)
-        self.log_path = self.args.log_dir + self.env_name + '.log'
+        self.log_path = self.args.log_dir + self.args.env_name + '.log'
         # get the observation
         self.batch_ob_shape = (self.args.num_workers * self.args.nsteps, ) + self.envs.observation_space.shape
         self.obs = np.zeros((self.args.num_workers, ) + self.envs.observation_space.shape, dtype=self.envs.observation_space.dtype.name)
