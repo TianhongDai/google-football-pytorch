@@ -23,3 +23,5 @@ if __name__ == '__main__':
     # create the ppo agent
     ppo_trainer = ppo_agent(envs, args, network)
     ppo_trainer.learn()
+    # close the environments
+    envs.close()
