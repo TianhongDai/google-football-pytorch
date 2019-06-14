@@ -41,5 +41,7 @@ python demo.py
 academy_empty_goal_close| academy_run_to_score
 -----------------------|-----------------------|
 ![](figures/academy_empty_goal_close.gif)| ![](figures/academy_run_to_score.gif)
+
 academy_3_vs_1_with_keeper| academy_counterattack_easy
+-----------------------|-----------------------|
 ![](figures/academy_3_vs_1_with_keeper.gif)| ![](figures/academy_counterattack_easy.gif)
