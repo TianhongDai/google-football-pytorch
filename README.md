@@ -1,6 +1,6 @@
 # Google Football Research
 ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)   
-This is the pytorch example of the google football research, more contents will be updated soon:football:!
+This is the pytorch example of the google football research, more contents will be updated soon:soccer:!
 ## Requirements
 - python-3.6.8
 - openai-baselines
